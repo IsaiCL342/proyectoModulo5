@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de Tareas</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+    <h1>Gestor de Tareas Colaborativo</h1>
+</header>
+
+<!-- Contenedor principal de las columnas -->
+    <main class="tablero">
+    <!-- Columna de tareas pendientes -->
+    <section class="columna" data-estado="pendiente">
+        <h2>Pendientes</h2>
+        <div class="tareas" id="pendiente"></div>
+    </section>
+
+    <!-- Columna de tareas en progreso -->
+    <section class="columna" data-estado="progreso">
+        <h2>En Progreso</h2>
+        <div class="tareas" id="progreso"></div>
+    </section>
+
+    <!-- Columna de tareas terminadas -->
+    <section class="columna" data-estado="terminada">
+        <h2>Terminadas</h2>
+        <div class="tareas" id="terminada"></div>
+    </section>
+</main>
+
+<!-- Formulario para crear/editar tareas -->
+    <section class="formulario">
+        <h2>Nueva Tarea</h2>
+        <form id="form-tarea">
+            <input type="text" name="titulo" placeholder="Título" required />
+            <textarea name="descripcion" placeholder="Descripción" required></textarea>
+            <select name="estado" required>
+                <option value="pendiente">Pendiente</option>
+                <option value="progreso">En Progreso</option>
+                <option value="terminada">Terminada</option>
+            </select>
+            <input type="text" name="responsable" placeholder="Responsable" required />
+            <button type="submit">Guardar</button>
+        </form>
+    </section>
+    
+    <script src="app.js"></script>
+</body>
+</html>
