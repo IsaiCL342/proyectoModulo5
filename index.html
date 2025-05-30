@@ -1,32 +1,40 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="light">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor de Tareas</title>
+    <title>TROLLO</title>
+    
+    <!-- Enlace a Bootstrap para facilitar el diseño responsivo -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Enlace al archivo CSS personalizado -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Encabezado del gestor de tareas -->
     <header class="bg-dark text-white text-center py-4">
-        <h1 class="h3">Gestor de Tareas Colaborativo</h1>
-        <button id="btnModoOscuro" class="btn btn-outline-light position-absolute top-0 end-0 m-3">🌓</button>
+        <h1 class="h3">TROLLO</h1>
     </header>
 
+    <!-- Sección principal donde se mostrarán las tareas agrupadas por estado -->
     <main class="container my-4">
         <div class="row" id="tablero">
+            <!-- Columna de tareas pendientes -->
             <div class="col-md-4 mb-4" data-estado="pendiente">
                 <div class="card">
                     <div class="card-header bg-warning text-dark">Pendientes</div>
                     <div class="card-body tareas" id="pendiente"></div>
                 </div>
             </div>
+            <!-- Columna de tareas en progreso -->
             <div class="col-md-4 mb-4" data-estado="progreso">
                 <div class="card">
                     <div class="card-header bg-info text-white">En Progreso</div>
                     <div class="card-body tareas" id="progreso"></div>
                 </div>
             </div>
+            <!-- Columna de tareas completadas -->
             <div class="col-md-4 mb-4" data-estado="terminada">
                 <div class="card">
                     <div class="card-header bg-success text-white">Terminadas</div>
@@ -36,10 +44,12 @@
         </div>
     </main>
 
+    <!-- Botón para mostrar el formulario de nueva tarea -->
     <section class="container mb-3 text-end">
         <button id="btnNuevaTarea" class="btn btn-primary">+ Nueva Tarea</button>
     </section>
 
+    <!-- Formulario para agregar una nueva tarea -->
     <section id="form-nueva-tarea" class="container mb-4 d-none">
         <div class="card">
             <div class="card-header bg-primary text-white">Nueva Tarea</div>
@@ -67,6 +77,7 @@
         </div>
     </section>
 
+    <!-- Formulario para editar una tarea -->
     <section id="form-editar-tarea" class="container mb-5 d-none">
         <div class="card border-warning">
             <div class="card-header bg-warning text-dark">Editar Tarea</div>
@@ -95,29 +106,7 @@
         </div>
     </section>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const btnModoOscuro = document.getElementById("btnModoOscuro");
-            const btnNuevaTarea = document.getElementById("btnNuevaTarea");
-
-            // Cargar preferencia de modo oscuro
-            document.documentElement.setAttribute("data-bs-theme", localStorage.getItem("modoOscuro") || "light");
-
-            btnModoOscuro.addEventListener("click", () => {
-                const html = document.documentElement;
-                const actual = html.getAttribute("data-bs-theme");
-                const nuevoModo = actual === "dark" ? "light" : "dark";
-                html.setAttribute("data-bs-theme", nuevoModo);
-                localStorage.setItem("modoOscuro", nuevoModo);
-            });
-
-            btnNuevaTarea.addEventListener("click", () => {
-                document.getElementById("form-nueva-tarea").classList.toggle("d-none");
-                document.getElementById("form-editar-tarea").classList.add("d-none");
-            });
-        });
-    </script>
-
+    <!-- Enlace a Bootstrap JS y el script de funcionalidad -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
 </body>

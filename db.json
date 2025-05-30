@@ -1,13 +1,25 @@
 {
-    "tareas": [
-        {
-            "id": "1",
-            "titulo": "Planificar estructura",
-            "descripcion": "Diseñar columnas y layout",
-            "estado": "progreso",
-            "responsable": "Jesua",
-            "fechaCreacion": "2025-05-28T10:00:00Z",
-            "ultimaActualizacion": "2025-05-29T16:00:00Z"
-        }
-    ]
+  "tareas": [
+    {
+      "id": "dfe3",
+      "titulo": "Pruebas finales",
+      "descripcion": "Por el momento va bien, checare el json",
+      "estado": "progreso",
+      "responsable": "Isai"
+    },
+    {
+      "id": "1bfd",
+      "titulo": "Prueba viendo",
+      "descripcion": "Veo el json",
+      "estado": "progreso",
+      "responsable": "Jesua"
+    },
+    {
+      "id": "1288",
+      "titulo": "Planificar estructura",
+      "descripcion": "asihoisfsaboa",
+      "estado": "pendiente",
+      "responsable": "Isai"
+    }
+  ]
 }
