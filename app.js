@@ -9,6 +9,20 @@ document.addEventListener('DOMContentLoaded', () => {
         mostrarFormularioNuevaTarea();
     });
 
+    const btnModoOscuro = document.getElementById("btnModoOscuro");
+
+    // Aplicar preferencia guardada
+    document.documentElement.setAttribute("data-bs-theme", localStorage.getItem("modoOscuro") || "light");
+
+    btnModoOscuro.addEventListener("click", () => {
+        const html = document.documentElement;
+        const actual = html.getAttribute("data-bs-theme");
+        const nuevoModo = actual === "dark" ? "light" : "dark";
+
+        html.setAttribute("data-bs-theme", nuevoModo);
+        localStorage.setItem("modoOscuro", nuevoModo);
+    });
+
 
     // Maneja el envío del formulario para crear una nueva tarea.
     document.getElementById('form-tarea-nueva').addEventListener('submit', async (e) => {
@@ -109,16 +123,50 @@ async function editarTarea(id) {
 }
 
 // Elimina una tarea después de pedir confirmación al usuario.
-async function eliminarTarea(id) {
-    if (confirm('¿Estás seguro de que quieres eliminar esta tarea?')) {
+let tareaAEliminar = null; // Variable para guardar la tarea a eliminar
+
+function mostrarModalEliminacion(id) {
+    tareaAEliminar = id;
+    const modal = new bootstrap.Modal(document.getElementById('modalConfirmacion'));
+    modal.show();
+}
+
+document.getElementById('btnConfirmarEliminacion').addEventListener('click', async () => {
+    if (tareaAEliminar) {
         try {
-            await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
-            cargarTareas(); // Recarga la lista de tareas después de eliminar una.
+            await fetch(`${API_URL}/${tareaAEliminar}`, { method: 'DELETE' });
+            cargarTareas(); // Recargar tareas después de eliminar
         } catch (error) {
             console.error("Error al eliminar tarea:", error);
         }
     }
+
+    tareaAEliminar = null; // Restablecer la variable después de eliminar
+    bootstrap.Modal.getInstance(document.getElementById('modalConfirmacion')).hide(); // Ocultar modal
+});
+
+// Modificar el evento de eliminación para usar el modal
+function crearElementoTarea(tarea) {
+    const div = document.createElement('div');
+    div.className = 'card mb-2';
+    div.innerHTML = `
+        <div class="card-body">
+            <h5 class="card-title">${tarea.titulo}</h5>
+            <p class="card-text">${tarea.descripcion}</p>
+            <p class="text-muted"><strong>Responsable:</strong> ${tarea.responsable}</p>
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-sm btn-outline-primary btn-editar">Editar</button>
+                <button class="btn btn-sm btn-outline-danger btn-eliminar">Eliminar</button>
+            </div>
+        </div>
+    `;
+    
+    div.querySelector(".btn-editar").addEventListener("click", () => editarTarea(tarea.id));
+    div.querySelector(".btn-eliminar").addEventListener("click", () => mostrarModalEliminacion(tarea.id)); // Ahora usa el modal
+
+    return div;
 }
+
 
 // Obtiene todas las tareas desde la API simulada.
 async function getTareas() {

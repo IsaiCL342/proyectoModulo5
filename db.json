@@ -3,8 +3,8 @@
     {
       "id": "dfe3",
       "titulo": "Pruebas finales",
-      "descripcion": "Por el momento va bien, checare el json",
-      "estado": "progreso",
+      "descripcion": "Listo ya quedo",
+      "estado": "terminada",
       "responsable": "Isai"
     },
     {
@@ -17,7 +17,7 @@
     {
       "id": "1288",
       "titulo": "Planificar estructura",
-      "descripcion": "asihoisfsaboa",
+      "descripcion": "Pruebas pruebas",
       "estado": "pendiente",
       "responsable": "Isai"
     }

@@ -1,8 +1,27 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Dancing+Script:wght@400..700&family=Doto:wght@100..900&family=Ga+Maamli&family=Geist+Mono:wght@100..900&family=Inter:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Press+Start+2P&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=VT323&display=swap');
+
+/* 🎨 Modo claro */
+body[data-bs-theme="light"] {
+    background-color: #f4f4f4 !important;
+    color: #000 !important;
+}
+
+/* 🌙 Modo oscuro */
+body[data-bs-theme="dark"] {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}
+
+/* Transiciones suaves */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 /* 🔹 Estilos generales */
 body {
-    font-family: sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     margin: 0;
-    background-color: #f4f4f4;
 }
 
 /* 🔹 Encabezado */
@@ -11,34 +30,6 @@ header {
     color: white;
     padding: 1rem;
     text-align: center;
-}
-
-/* 🔹 Diseño de columnas para el tablero */
-.tablero {
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-/* 🔹 Cada columna de tareas */
-.columna {
-    background-color: #ecf0f1;
-    padding: 1rem;
-    border-radius: 10px;
-    width: 30%;
-    min-width: 250px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-}
-
-/* 🔹 Área donde se renderizarán las tareas */
-.tareas {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
 }
 
 /* 🔹 Tarjetas de tareas */
@@ -62,34 +53,18 @@ header {
 /* 🔹 Estilos para inputs y botones */
 form input,
 form textarea,
-form select,
-form button {
-    display: block;
+form select {
     width: 100%;
-    margin-bottom: 1rem;
     padding: 0.75rem;
     font-size: 1rem;
     box-sizing: border-box;
 }
 
-form button {
-    background-color: #27ae60;
-    color: white;
-    border: none;
-    cursor: pointer;
+/* Estilos para el modal */
+.modal-header {
+    border-bottom: none;
 }
 
-form button:hover {
-    background-color: #219150;
-}
-
-/* 🔹 Diseño responsivo */
-@media (max-width: 768px) {
-    .tablero {
-        flex-direction: column;
-        align-items: center;
-    }
-    .columna {
-        width: 90%;
-    }
+.modal-footer {
+    border-top: none;
 }
