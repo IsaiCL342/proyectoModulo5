@@ -12,13 +12,34 @@
       "titulo": "Prueba viendo",
       "descripcion": "Veo el json",
       "estado": "progreso",
-      "responsable": "Jesua"
+      "responsable": "Luis"
     },
     {
       "id": "1288",
       "titulo": "Planificar estructura",
       "descripcion": "Pruebas pruebas",
       "estado": "pendiente",
+      "responsable": "Isai"
+    },
+    {
+      "id": "8090",
+      "titulo": "Planificar estructura",
+      "descripcion": "Planificar estructura del proyecto",
+      "estado": "pendiente",
+      "responsable": "Luis"
+    },
+    {
+      "id": "4839",
+      "titulo": "Tarea json",
+      "descripcion": "Checar detalles",
+      "estado": "progreso",
+      "responsable": "Emir"
+    },
+    {
+      "id": "f291",
+      "titulo": "Final",
+      "descripcion": "Terminar pruebas",
+      "estado": "terminada",
       "responsable": "Isai"
     }
   ]

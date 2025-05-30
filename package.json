@@ -1,0 +1,16 @@
+{
+  "name": "proyectofinal_mod5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3",
+    "node-fetch": "^3.3.2"
+  }
+}
